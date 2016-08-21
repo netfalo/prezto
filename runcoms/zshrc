@@ -5,9 +5,47 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+autoload -Uz colors && colors
+
+
+autoload -Uz compinit promptinit
+compinit
+promptinit
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
 # Customize to your needs...
+
+bindkey "\e[5~" history-beginning-search-backward
+bindkey "\e[6~" history-beginning-search-forward
+
+#https://wiki.archlinux.org/index.php/zsh#Dirstack
+if [[ ! -d "$HOME/.cache/zsh" ]]; then
+    mkdir "$HOME/.cache/zsh"
+fi
+DIRSTACKFILE="$HOME/.cache/zsh/dirs.$(date +%s)"
+touch $DIRSTACKFILE
+if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
+  dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
+  [[ -d $dirstack[1] ]] && cd $dirstack[1]
+fi
+chpwd() {
+  print -l $PWD ${(u)dirstack} >> $DIRSTACKFILE
+}
+
+DIRSTACKSIZE=20
+
+setopt AUTO_PUSHD PUSHD_SILENT PUSHD_TO_HOME
+
+## Remove duplicate entries
+setopt PUSHD_IGNORE_DUPS
+
+## This reverts the +/- operators.
+setopt PUSHD_MINUS
+
+#https://wiki.archlinux.org/index.php/zsh#cdr
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
