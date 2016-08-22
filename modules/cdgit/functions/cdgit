@@ -1,0 +1,4 @@
+function cdgit()
+{
+    cd "${GITDIR}/$1"
+}

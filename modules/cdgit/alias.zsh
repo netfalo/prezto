@@ -1,0 +1,1 @@
+alias cg='cdgit $1'

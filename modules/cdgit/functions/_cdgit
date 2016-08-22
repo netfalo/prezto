@@ -1,0 +1,11 @@
+#compdef cdgit
+#autoload
+
+#
+# Completes cdgit.
+#
+# Authors:
+#   Marcell Lipusz <netfalo@gmail.com>
+#
+
+_alternative 'Git Repositories:Git Repositories:_files -/ -W "$GITDIR"'

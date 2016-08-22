@@ -7,7 +7,6 @@
 
 autoload -Uz colors && colors
 
-
 autoload -Uz compinit promptinit
 compinit
 promptinit
@@ -50,14 +49,9 @@ setopt PUSHD_MINUS
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 
-
-
-function cdgit() {
-    cd ~/git/$1
-}
-
-alias cdgit='cdgit $@'
-
 TERM=konsole-256color
 
+
 RPROMPT='%{$fg[blue]%}[%{$fg_bold[yellow]%}$(date +%H:%M:%S)%{$fg[blue]%}]%{$reset_color%}'
+
+GITDIR=${HOME}/git
