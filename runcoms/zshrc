@@ -49,3 +49,15 @@ setopt PUSHD_MINUS
 #https://wiki.archlinux.org/index.php/zsh#cdr
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
+
+
+
+function cdgit() {
+    cd ~/git/$1
+}
+
+alias cdgit='cdgit $@'
+
+TERM=konsole-256color
+
+RPROMPT='%{$fg[blue]%}[%{$fg_bold[yellow]%}$(date +%H:%M:%S)%{$fg[blue]%}]%{$reset_color%}'
