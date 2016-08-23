@@ -35,8 +35,8 @@ zstyle ':prezto:load' pmodule \
   'prompt' \
   'spectrum' \
   'cdgit' \
-  'syntax-highlighting' \
-  'autosuggestions'
+  'syntax-highlighting'
+
 #
 # Autosuggestions
 #
