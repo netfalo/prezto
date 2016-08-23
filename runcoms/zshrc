@@ -55,3 +55,6 @@ TERM=konsole-256color
 RPROMPT='%{$fg[blue]%}[%{$fg_bold[yellow]%}$(date +%H:%M:%S)%{$fg[blue]%}]%{$reset_color%}'
 
 GITDIR=${HOME}/git
+
+setopt inc_append_history
+setopt share_history
