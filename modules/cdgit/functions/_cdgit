@@ -10,4 +10,4 @@
 
 local -a options
 options=($(find $GITDIR -maxdepth 2 -name ".git" | sed 's|/.git||g' | awk -F'/' '{print $NF}'))
-_alternative "Git Repositories:Git Repositories:(${options[@]})"
+_alternative "Git Repositories:Git Repositories under $GITDIR:(${options[@]})"
