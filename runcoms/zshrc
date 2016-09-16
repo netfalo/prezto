@@ -58,3 +58,6 @@ GITDIR=${HOME}/git
 
 setopt inc_append_history
 setopt share_history
+
+alias pbpaste='xsel --clipboard --output'
+alias pbcopy='xsel --clipboard --input'
