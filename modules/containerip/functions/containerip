@@ -1,0 +1,4 @@
+function containerip()
+{
+    python ~/.zprezto/modules/containerip/containerip.py "$@"
+}
