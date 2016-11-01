@@ -49,7 +49,7 @@ setopt PUSHD_MINUS
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 
-TERM=konsole-256color
+TERM=xterm-256color
 
 
 RPROMPT='%{$fg[blue]%}[%{$fg_bold[yellow]%}$(date +%H:%M:%S)%{$fg[blue]%}]%{$reset_color%}'
