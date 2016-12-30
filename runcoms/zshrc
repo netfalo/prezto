@@ -61,3 +61,8 @@ setopt share_history
 
 alias pbpaste='xsel --clipboard --output'
 alias pbcopy='xsel --clipboard --input'
+
+
+export GPGKEY=88C127D0
+
+EMACS_SERVER_FILE="~/.emacs.d/"
