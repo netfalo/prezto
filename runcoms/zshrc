@@ -62,7 +62,13 @@ setopt share_history
 alias pbpaste='xsel --clipboard --output'
 alias pbcopy='xsel --clipboard --input'
 
+em () {
+   if [[ "$(ps aux | grep -E "emacs --daemon" | wc -l)" -ne "2" ]]; then
+      emacs --daemon &> /dev/null &
+   fi
+   nohup emacsclient $1 &> /dev/null &
+}
+
+alias em="em $1"
 
 export GPGKEY=88C127D0
-
-EMACS_SERVER_FILE="~/.emacs.d/"
